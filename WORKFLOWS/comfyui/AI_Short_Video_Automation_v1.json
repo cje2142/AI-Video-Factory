@@ -1,0 +1,207 @@
+{
+  "8": {
+    "inputs": {
+      "ckpt_name": "DreamShaper_8_pruned.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "체크포인트 로드"
+    }
+  },
+  "9": {
+    "inputs": {
+      "text": "A single red ceramic coffee mug on a plain white table,\nfront view,\ncentered composition,\nfull mug visible,\nsimple clean background,\nsoft studio lighting,\nsharp edges,\nrealistic photograph,\nhigh detail,\nno camera movement",
+      "clip": [
+        "8",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP 텍스트 인코딩 (프롬프트)"
+    }
+  },
+  "10": {
+    "inputs": {
+      "text": "blurry,\npixelated,\ndistorted,\ndeformed,\nduplicate,\nmultiple objects,\ncropped,\ncut off,\nlow quality,\ntext,\nwatermark,\nnoise",
+      "clip": [
+        "8",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP 텍스트 인코딩 (프롬프트)"
+    }
+  },
+  "12": {
+    "inputs": {
+      "seed": 516829021250593,
+      "steps": 16,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "17",
+        0
+      ],
+      "positive": [
+        "9",
+        0
+      ],
+      "negative": [
+        "10",
+        0
+      ],
+      "latent_image": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "13": {
+    "inputs": {
+      "samples": [
+        "12",
+        0
+      ],
+      "vae": [
+        "8",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE 디코드"
+    }
+  },
+  "14": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "이미지 저장"
+    }
+  },
+  "15": {
+    "inputs": {
+      "model_name": "mm_sd_v15_v2.ckpt"
+    },
+    "class_type": "ADE_LoadAnimateDiffModel",
+    "_meta": {
+      "title": "Load AnimateDiff Model 🎭🅐🅓②"
+    }
+  },
+  "16": {
+    "inputs": {
+      "motion_model": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "ADE_ApplyAnimateDiffModelSimple",
+    "_meta": {
+      "title": "Apply AnimateDiff Model 🎭🅐🅓②"
+    }
+  },
+  "17": {
+    "inputs": {
+      "beta_schedule": "autoselect",
+      "model": [
+        "8",
+        0
+      ],
+      "m_models": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "ADE_UseEvolvedSampling",
+    "_meta": {
+      "title": "Use Evolved Sampling 🎭🅐🅓②"
+    }
+  },
+  "18": {
+    "inputs": {
+      "frame_rate": 8,
+      "loop_count": 0,
+      "filename_prefix": "cat_test",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p10le",
+      "crf": 23,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "19": {
+    "inputs": {
+      "context_length": 16,
+      "context_stride": 1,
+      "context_overlap": 8,
+      "fuse_method": "pyramid",
+      "use_on_equal_length": false,
+      "start_percent": 0,
+      "guarantee_steps": 1
+    },
+    "class_type": "ADE_StandardUniformContextOptions",
+    "*meta": {
+      "title": "Context Options◆Standard Uniform 🎭🅐🅓"
+    }
+  },
+  "21": {
+    "inputs": {
+      "image": "AI_Short_Test_00001_.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "22": {
+    "inputs": {
+      "pixels": [
+        "21",
+        0
+      ],
+      "vae": [
+        "8",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE 인코드"
+    }
+  },
+  "24": {
+    "inputs": {
+      "width": 384,
+      "height": 640,
+      "batch_size": 24
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "빈 잠재 이미지"
+    }
+  }
+}
