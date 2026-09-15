@@ -1,4 +1,4 @@
-# AI Video Factory Development Policy v1.0
+# AI Video Factory Development Policy v1.1
 
 ## 1. Roles
 - ChatGPT: project planning, overall architecture, step-by-step progress control, validation.
@@ -31,3 +31,12 @@ Manual/automatic trigger → Ollama script → Scene parsing → Image prompts �
 
 ## 6. Recovery
 If a new change fails validation, return to the last verified version and diagnose one issue at a time.
+
+## 7. Unified Workspace Root
+- The default Windows workspace root for ChatGPT + user project work is `D:\chatgpr`.
+- New local project files, scripts, temporary working files, test outputs, project utilities, and handoff assets should be created under this root whenever technically possible.
+- Each project should use its own subfolder under `D:\chatgpr` rather than scattering files across unrelated Windows paths.
+- Existing working applications, model repositories, installed runtimes, and validated environments may remain in their current locations when moving them would create unnecessary risk or break dependencies.
+- When an existing external path must be used, keep project-owned generated assets and integration files under `D:\chatgpr` where practical and reference the external dependency explicitly.
+- Prefer stable, predictable paths over ad-hoc Desktop, Downloads, or temporary-folder locations.
+- Before introducing a new top-level local path outside `D:\chatgpr`, verify that it is required by the tool or runtime.
