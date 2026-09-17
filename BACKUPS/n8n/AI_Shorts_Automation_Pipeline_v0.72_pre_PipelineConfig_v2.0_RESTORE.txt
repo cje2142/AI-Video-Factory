@@ -1,0 +1,24 @@
+AI Shorts Automation Pipeline v0.72 pre PipelineConfig v2.0 backup
+
+Source file:
+AI Shorts Automation Pipeline v0.72-pre-PipelineConfig-v2.0.json
+
+Backup format:
+- gzip-compressed exact source bytes
+- base64 encoded
+- split into 4 ordered parts
+
+Files:
+AI_Shorts_Automation_Pipeline_v0.72_pre_PipelineConfig_v2.0.part00.b64
+AI_Shorts_Automation_Pipeline_v0.72_pre_PipelineConfig_v2.0.part01.b64
+AI_Shorts_Automation_Pipeline_v0.72_pre_PipelineConfig_v2.0.part02.b64
+AI_Shorts_Automation_Pipeline_v0.72_pre_PipelineConfig_v2.0.part03.b64
+
+Restore on Linux/macOS/Git Bash:
+cat AI_Shorts_Automation_Pipeline_v0.72_pre_PipelineConfig_v2.0.part*.b64 | base64 -d | gzip -dc > "AI Shorts Automation Pipeline v0.72-pre-PipelineConfig-v2.0.json"
+
+Expected SHA-256 of restored JSON:
+3d206b757b311c85663af273c03a8e5642e8739dd07af1b5043e88334a0ce3d8
+
+Verification performed before upload:
+The reconstructed backup SHA-256 matched the original uploaded JSON exactly.
