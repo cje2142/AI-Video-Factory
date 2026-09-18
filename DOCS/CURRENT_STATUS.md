@@ -110,6 +110,12 @@ Minor simplification, casual wording, mild exaggeration, or non-academic phrasin
 
 Work one node at a time. Validate each stage before connecting the next stage. Preserve known-good workflow versions before structural changes.
 
+## Fact Pack Progress
+
+- `DOCS/AI_VIDEO_FACTORY_FACT_PACK_SPEC_v1.0.md` created.
+- Fact Pack role, JSON interface, PASS/WARN/FAIL handling, deterministic schema validation, retry rules, and Qwen2.5 production prompt draft are now design-locked.
+- Fact Pack is **not yet promoted to implemented/validated runtime status** until local Qwen2.5 + n8n tests pass.
+
 ## Immediate Next Step
 
-Optimize the **Qwen2.5-based Fact Pack → Script Writer → Light Validator → Scene Adapter** structure, with fewer style restrictions and fatal-error-only validation.
+Run local Qwen2.5 tests against the locked Fact Pack v1.0 schema and prompt. After Fact Pack passes schema/content validation, proceed to **Qwen2.5 Script Writer** design and integration.
