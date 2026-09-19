@@ -172,3 +172,15 @@ Then:
 2. validate a positive Expansion case that adds a new Fact
 3. validate Expanded success → Scene Adapter
 4. continue end-to-end media validation
+
+
+## GitHub Backup Status
+
+v2.32-Final workflow artifact backup is complete.
+
+- Canonical: `WORKFLOWS/n8n/AI_Shorts_Automation_Pipeline_v2.32_Final.json`
+- Archive: `BACKUPS/n8n/AI_Shorts_Automation_Pipeline_v2.32_Final_2026-09-19.json`
+- Both files are 413,600 bytes and resolve to the same Git blob SHA:
+  `78e9279113330fc9abdecb92ead4136d659fa0e1`
+
+GitHub is now a verified restore source for this checkpoint.
