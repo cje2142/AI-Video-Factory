@@ -60,3 +60,21 @@ Current project status:
 ## Note
 
 This manifest records the exact validated artifact identity and restore checks. The exported JSON remains the authoritative workflow artifact for v2.32-Final.
+
+
+## GitHub Artifact Backup Completed
+
+The exact validated workflow JSON is now stored in two repository locations:
+
+- Canonical workflow:
+  - `WORKFLOWS/n8n/AI_Shorts_Automation_Pipeline_v2.32_Final.json`
+- Dated archive backup:
+  - `BACKUPS/n8n/AI_Shorts_Automation_Pipeline_v2.32_Final_2026-09-19.json`
+
+Verification:
+
+- both files: **413,600 bytes**
+- both Git blob SHA: `78e9279113330fc9abdecb92ead4136d659fa0e1`
+- canonical create commit: `6ed40ff1fc33d50ce969054b12b8e7d8cc5273d7`
+- dated archive create commit: `d45793db7a27be51849bb037f639932842b1000d`
+- identical blob SHA confirms both repository copies contain identical bytes.
